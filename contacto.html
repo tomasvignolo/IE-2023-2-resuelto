@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>Dos Ríos | Contacto</title>
+    </head>
+    <body>
+        <!-- bloque cabecera -->
+        <header class="header padding-bloques">
+            <a class="header__logo-link" href="./index.html">
+                <figure class="header__figure">
+                    <img
+                        class="header__logo"
+                        src="./assets/images/logo-2rios.svg"
+                        alt="Isologo 2 rios"
+                    />
+                </figure>
+            </a>
+            <nav class="nav-principal">
+                <a href="index.html">Inicio</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </header>
+        <!-- bloque principal -->
+        <main class="main padding-bloques">
+            <figure class="main__figure">
+                <img
+                    class="main__imagen"
+                    src="./assets/images/lago.jpg"
+                    alt="lago"
+                />
+            </figure>
+            <h1 class="main__titulo">Contacto</h1>
+            <form class="form" action="./contacto.html" method="post">
+                <label for="id-nombre">Nombre</label>
+                <input
+                    id="id-nombre"
+                    name="nombre"
+                    type="text"
+                    minlength="3"
+                    placeholder="su nombre"
+                    required
+                />
+                <label for="id-email">Email</label>
+                <input id="id-email" name="email" type="email"
+                placeholder="email@email.com" required />
+                <label for="id-fecha">Fecha estimada</label>
+                <input id="id-fecha" name="fecha" type="date" required />
+                <label for="id-dias">Estadía</label>
+                <input
+                    id="id-dias"
+                    min="1"
+                    name="dias"
+                    type="number"
+                    placeholder="cantidad de días"
+                    required
+                />
+                <label for="id-consulta">Consulta</label>
+                <textarea
+                    id="id-consulta"
+                    name="consulta"
+                    cols="30"
+                    rows="10"
+                    required
+                ></textarea>
+                <button type="submit">Enviar consulta</button>
+            </form>
+        </main>
+        <!-- bloque pie -->
+        <footer class="footer padding-bloques">
+            <ul class="footer__lista">
+                <li class="footer__item">
+                    <a
+                        class="footer__link"
+                        href="http://miredsocial.com"
+                        target="_blank"
+                    >
+                        <img src="./assets/images/ig.svg" /> instagram
+                    </a>
+                </li>
+                <li class="footer__item">&copy; dos ríos 2023</li>
+            </ul>
+        </footer>
+        <script>
+            // formulario -----------------------------------------
+            const fechaViaje = document.getElementById("id-fecha");
+            function setFechas() {
+                const fecha = new Date();
+                const dia = String(fecha.getDate()).padStart(2, "0");
+                const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+                const ano = fecha.getFullYear();
+                const fechaActual = `${ano}-${mes}-${dia}`;
+                fechaViaje.min = fechaActual;
+                fechaViaje.value = fechaActual;
+            }
+            setFechas();
+        </script>
+    </body>
+</html>
